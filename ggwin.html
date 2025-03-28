@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GG WIN</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
-    }
-    h1 {
-      font-size: 3rem;
-      color: #4CAF50;
-      margin: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GG WIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .user-info {
+            padding: 10px;
+            background-color: #f4f4f4;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
-  <h1>GG WIN</h1>
+    <div class="user-info">
+        <h2>Привет, <span id="username"></span></h2>
+        <p>Ваш баланс: <span id="balance"></span></p>
+    </div>
+
+    <script>
+        // Получаем параметры из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+        const balance = urlParams.get('balance');
+
+        // Отображаем данные на странице
+        document.getElementById('username').textContent = username || 'Неизвестный пользователь';
+        document.getElementById('balance').textContent = balance || 'Неизвестен';
+    </script>
 </body>
 </html>
